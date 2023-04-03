@@ -12,6 +12,7 @@ private val GrayPrimary = Color(0xFF575757)
 private val GraySecondary = Color(0xFF949494)
 private val Background = Color(0xFFFCFCFC)
 private val Green = Color(0xFF55C595)
+private val EmptySearch = Color(0xFF289460)
 
 val LightColorsPalette = VendorAppColors(
     text = GraySecondary,
@@ -21,7 +22,8 @@ val LightColorsPalette = VendorAppColors(
     buttonUnselected = Color.White,
     background = Background,
     chipsBackground = Color.White,
-    snackBarBackground = GrayPrimary
+    snackBarBackground = GrayPrimary,
+    textEmptySearch = EmptySearch
 )
 
 @Stable
@@ -29,6 +31,7 @@ data class VendorAppColors(
     val text: Color,
     val textDark: Color,
     val textLight: Color,
+    val textEmptySearch: Color,
 
     val buttonSelected: Color,
     val buttonUnselected: Color,

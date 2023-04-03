@@ -8,4 +8,16 @@ data class Vendor(
     val favorite: Boolean,
     val categories: List<VendorCategory>?,
     val tags: String?
-)
+){
+    fun doesMatchSearchQuery(query: String): Boolean {
+        val matchingCombinations = listOf(
+            companyName,
+            companyName,
+            "${companyName.first()}",
+        )
+
+        return matchingCombinations.any {
+            it.contains(query, ignoreCase = true)
+        }
+    }
+}

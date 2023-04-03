@@ -16,6 +16,7 @@ android {
         versionCode 1
         versionName "1.0"
 
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary true
         }
@@ -34,7 +35,6 @@ android {
             applicationIdSuffix ".development"
         }
     }
-
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -42,6 +42,7 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
     buildFeatures {
         compose true
     }
@@ -78,6 +79,21 @@ dependencies {
 
     implementation hiltDependencies.lib
     kapt hiltDependencies.kapt
+    androidTestImplementation hiltDependencies.testing
 
     implementation retrofit.jsonConverter
+
+    testImplementation testunit.junit
+    androidTestImplementation testunit.junitExt
+    androidTestImplementation testunit.espresso
+
+    testImplementation testunit.truth
+    androidTestImplementation testunit.androidtruth
+    testImplementation testunit.mockitocore
+    testImplementation testunit.mockitokotlin
+    testImplementation testunit.archcore
+    testImplementation testunit.coroutinestest
+    androidTestImplementation testunit.uiunit
+    debugImplementation testunit.uitooling
+    debugImplementation testunit.uimanifest
 }

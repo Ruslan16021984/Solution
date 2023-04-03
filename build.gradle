@@ -1,5 +1,5 @@
-buildscript {
-    ext {
+buildscript{
+    ext{
 
         gradleDependencies = [
                 compileSdk: 33,
@@ -31,6 +31,7 @@ buildscript {
                 lib      : "com.google.dagger:hilt-android:$hiltVersion",
                 kapt     : "com.google.dagger:hilt-android-compiler:$hiltVersion",
                 classpath: "com.google.dagger:hilt-android-gradle-plugin:$hiltVersion",
+                testing  : "com.google.dagger:hilt-android-testing:$hiltVersion"
         ]
 
         composeUiVersion = "1.2.0-rc03"
@@ -69,14 +70,36 @@ buildscript {
                 lib          : "com.squareup.retrofit2:retrofit:$retrofitVersion",
                 jsonConverter: "com.squareup.retrofit2:converter-gson:$retrofitVersion"
         ]
+        junitVersion = "4.13.2"
+        junitExtVersion = "1.1.5"
+        espressoVersion = "3.5.1"
+        truthVersion = "1.0.1"
+        mockitocore = "4.5.1"
+        mockitokotlin = "4.1.0"
+        coroutinestest = "1.4.2"
+        archcore = "2.1.0"
+        testunit = [
+                junit         : "junit:junit:$junitVersion",
+                junitExt      : "androidx.test.ext:junit:$junitExtVersion",
+                espresso      : "androidx.test.espresso:espresso-core:$espressoVersion",
+                truth         : "com.google.truth:truth:$truthVersion",
+                androidtruth  : "com.google.truth:truth:$truthVersion",
+                mockitocore   : "org.mockito:mockito-core:$mockitocore",
+                mockitokotlin : "org.mockito.kotlin:mockito-kotlin:$mockitokotlin",
+                coroutinestest: "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinestest",
+                archcore      : "androidx.arch.core:core-testing:$archcore",
+                uiunit        : "androidx.compose.ui:ui-test-junit4:$composeUiVersion",
+                uitooling     : "androidx.compose.ui:ui-tooling:$composeUiVersion",
+                uimanifest    : "androidx.compose.ui:ui-test-manifest:$composeUiVersion"
+        ]
     }
 
-    dependencies {
+    dependencies{
         classpath hiltDependencies.classpath
     }
 }
 
-plugins {
+plugins{
     id 'com.android.application' version '7.3.0' apply false
     id 'com.android.library' version '7.3.0' apply false
     id 'org.jetbrains.kotlin.android' version '1.7.10' apply false
