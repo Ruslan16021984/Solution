@@ -17,7 +17,6 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
-import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
@@ -42,9 +41,6 @@ fun SearchAppBar(
         mutableStateOf("")
     }
     val keyboardController = LocalSoftwareKeyboardController.current
-    val valid = remember(searchQueryState.value) {
-        searchQueryState.value.trim().isNotEmpty()
-    }
     Surface(
         modifier = Modifier
             .padding(16.dp, 16.dp)
@@ -114,6 +110,7 @@ fun SearchAppBar(
                     focusManager.clearFocus()
                     onSearchClicked(searchQueryState.value)
                     keyboardController?.hide()
+                    isFocus.value = !isFocus.value
                 }
             ),
             colors = TextFieldDefaults.textFieldColors(
