@@ -38,7 +38,6 @@ class VendorsScreenKtTest{
             }
 
         }
-        Thread.sleep(2000)
     }
 
     @Test
@@ -57,6 +56,5 @@ class VendorsScreenKtTest{
             }
 
         }
-        Thread.sleep(2000)
     }
 }
